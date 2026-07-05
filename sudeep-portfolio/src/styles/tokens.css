@@ -1,0 +1,54 @@
+:root {
+  /* Color */
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-surface-hover: #243349;
+  --color-text-primary: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+  --color-accent: #d9a566;
+  --color-accent-muted: rgba(217, 165, 102, 0.12);
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-error: #b85c5c;
+
+  /* Typography */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+
+  --fs-hero: clamp(2.75rem, 6vw, 4.5rem);
+  --fs-section: clamp(1.75rem, 3vw, 2.5rem);
+  --fs-card-title: 1.25rem;
+  --fs-body: 1rem;
+  --fs-caption: 0.8125rem;
+
+  --lh-body: 1.7;
+  --lh-tight: 1.2;
+
+  /* Spacing (8px base unit) */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+
+  --section-gap-desktop: 8rem;
+  --section-gap-mobile: 4.5rem;
+
+  /* Layout */
+  --content-max-width: 1120px;
+  --gutter: 24px;
+  --radius-card: 12px;
+  --radius-sm: 8px;
+  --nav-height: 72px;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+
+  /* Shadow */
+  --shadow-card-hover: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
