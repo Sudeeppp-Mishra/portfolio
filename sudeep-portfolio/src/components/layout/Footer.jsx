@@ -1,10 +1,11 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { SITE_CONFIG } from '../../siteConfig.js';
 import '../../styles/footer.css';
 
 const SOCIAL_LINKS = [
-  { label: 'GitHub', href: 'https://github.com/your-username', Icon: Github },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/your-username', Icon: Linkedin },
-  { label: 'Email', href: 'mailto:sudeep@example.com', Icon: Mail },
+  { label: 'GitHub', href: SITE_CONFIG.github, Icon: Github },
+  { label: 'LinkedIn', href: SITE_CONFIG.linkedin, Icon: Linkedin },
+  { label: 'Email', href: `mailto:${SITE_CONFIG.email}`, Icon: Mail },
 ];
 
 function Footer() {

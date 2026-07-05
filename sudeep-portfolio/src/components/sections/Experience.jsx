@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import SectionHeading from '../ui/SectionHeading.jsx';
+import { SITE_CONFIG } from '../../siteConfig.js';
 import '../../styles/experience.css';
 
 function Experience() {
@@ -21,8 +22,8 @@ function Experience() {
               Actively seeking internship and co-op opportunities — reach out if
               you're hiring.
             </p>
-            <a href="mailto:sudeep@example.com" className="experience__link">
-              sudeep@example.com
+            <a href={`mailto:${SITE_CONFIG.email}`} className="experience__link">
+              {SITE_CONFIG.email}
             </a>
           </div>
         </motion.div>
