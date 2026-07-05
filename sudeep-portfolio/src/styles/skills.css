@@ -1,0 +1,72 @@
+.skills__grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+}
+
+.skills__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-3);
+}
+
+.skills__card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skills__card-icon {
+  color: var(--color-accent);
+}
+
+.skills__card-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-primary);
+  flex: 1;
+}
+
+.skills__card-count {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  color: var(--color-text-secondary);
+}
+
+.skills__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills__item {
+  padding: 0.625rem var(--space-2);
+  margin-inline: calc(var(--space-2) * -1);
+  border-left: 2px solid transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--duration-fast) ease, border-color var(--duration-fast) ease,
+    background-color var(--duration-fast) ease;
+}
+
+.skills__item:last-child {
+  border-bottom: none;
+}
+
+.skills__item:hover {
+  color: var(--color-text-primary);
+  border-left-color: var(--color-accent);
+  background-color: var(--color-surface-hover);
+}
+
+@media (min-width: 768px) {
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
