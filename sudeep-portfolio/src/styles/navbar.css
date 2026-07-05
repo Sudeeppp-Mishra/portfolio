@@ -35,10 +35,17 @@
 }
 
 .navbar__logo {
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: 1.125rem;
-  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.navbar__logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin-top: 3px;
 }
 
 .navbar__logo-dot {
@@ -129,4 +136,11 @@
   .navbar__toggle {
     display: none;
   }
+}
+
+.navbar__logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }

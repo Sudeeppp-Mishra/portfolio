@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useActiveSection } from '../../hooks/useActiveSection.js';
@@ -14,9 +14,19 @@ const NAV_ITEMS = [
   { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ];
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const activeId = useActiveSection(NAV_ITEMS.map((item) => item.id));
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNavClick = (id) => {
     setIsOpen(false);
@@ -24,7 +34,7 @@ function Navbar() {
   };
 
   return (
-    <header className="navbar">
+    <header className={`navbar ${isScrolled ? 'is-scrolled' : ''}`}>
       <div className="navbar__inner container">
         <a
           href="#home"
@@ -35,7 +45,11 @@ function Navbar() {
           }}
           aria-label="Sudeep Mishra, go to top"
         >
-          SM<span className="navbar__logo-dot">·</span>
+          <img
+            src="/images/logo.png"
+            alt="Sudeep Mishra logo"
+            className="navbar__logo-img"
+          />
         </a>
 
         <nav className="navbar__nav navbar__nav--desktop" aria-label="Primary">

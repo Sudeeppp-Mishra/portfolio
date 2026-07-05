@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Mail, MapPin } from 'lucide-react';
 import { Github, Linkedin } from '../ui/BrandIcons.jsx';
 import SectionHeading from '../ui/SectionHeading.jsx';
@@ -16,6 +17,7 @@ const CONTACT_ITEMS = [
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle');
+  const shouldReduceMotion = useReducedMotion();
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -32,7 +34,13 @@ function Contact() {
         <SectionHeading eyebrow="Let's talk" title="Contact" />
 
         <div className="contact__grid">
-          <ul className="contact__list">
+          <motion.ul
+            className="contact__list"
+            initial={shouldReduceMotion ? undefined : { opacity: 0, x: -30 }}
+            whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15 }}
+            transition={{ type: 'spring', stiffness: 90, damping: 16 }}
+          >
             {CONTACT_ITEMS.map(({ label, href, Icon, external }) => (
               <li key={label} className="contact__item">
                 <Icon size={18} className="contact__icon" aria-hidden="true" />
@@ -50,9 +58,17 @@ function Contact() {
                 )}
               </li>
             ))}
-          </ul>
+          </motion.ul>
 
-          <form className="contact__form" onSubmit={handleSubmit} noValidate>
+          <motion.form
+            className="contact__form"
+            onSubmit={handleSubmit}
+            noValidate
+            initial={shouldReduceMotion ? undefined : { opacity: 0, x: 30 }}
+            whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15 }}
+            transition={{ type: 'spring', stiffness: 90, damping: 16 }}
+          >
             <div className="contact__field">
               <label htmlFor="name" className="contact__label">
                 Name
@@ -107,7 +123,7 @@ function Contact() {
             <div role="status" aria-live="polite" className="contact__status">
               {status === 'success' && 'Message sent — thank you, I\'ll reply soon.'}
             </div>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>

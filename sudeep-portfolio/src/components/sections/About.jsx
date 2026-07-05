@@ -1,32 +1,66 @@
-import { motion } from 'framer-motion';
-import '../../styles/about.css';
+import { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
+import "../../styles/about.css";
+
+const ABOUT_TEXT = `I’ve always been curious about how things actually work beneath the surface. That curiosity naturally led me toward computer engineering, where every system hides another layer waiting to be understood.
+
+I enjoy building projects from scratch, breaking problems down, and learning through iteration rather than theory alone. Outside of academics, I spend time experimenting with code, tools, and ideas that help me think and build better.
+
+Right now I’m focused on growing as a developer — improving my fundamentals, exploring systems, and learning how to turn ideas into something real and usable.`;
+
+function Word({ children, progress, range }) {
+  const opacity = useTransform(progress, range, [0.15, 1]);
+  return (
+    <motion.span className="about__word" style={{ opacity }}>
+      {children}{" "}
+    </motion.span>
+  );
+}
 
 function About() {
+  const containerRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.85", "start 0.4"],
+  });
+
+  const words = ABOUT_TEXT.split(" ");
+
   return (
-    <section id="about" className="about" aria-label="About me">
+    <section
+      ref={containerRef}
+      id="about"
+      className="about"
+      aria-label="About me"
+    >
       <div className="container about__inner">
-        <motion.div
-          className="about__content"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="about__content">
           <h2 className="visually-hidden">About</h2>
           <p className="about__text">
-            I've always been the kind of person who wants to know how something
-            actually works, not just that it works — which is what pulled me
-            toward computer engineering in the first place. I like problems that
-            sit at the boundary between hardware and software, where the answer
-            isn't obvious until you've traced it through both layers. Most of my
-            time outside coursework goes into building things end-to-end and
-            picking apart how production systems are put together, one layer at
-            a time. Right now that means going deep on systems programming and
-            distributed systems fundamentals — not because a course asked me to,
-            but because I want to actually understand the machinery underneath
-            the tools I use every day.
+            {shouldReduceMotion
+              ? ABOUT_TEXT
+              : words.map((word, i) => {
+                  const start = i / words.length;
+                  const end = start + 1 / words.length;
+                  return (
+                    <Word
+                      key={i}
+                      progress={scrollYProgress}
+                      range={[start, end]}
+                    >
+                      {word}
+                    </Word>
+                  );
+                })}
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

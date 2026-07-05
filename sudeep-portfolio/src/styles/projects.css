@@ -1,11 +1,7 @@
 .projects__grid {
   display: grid;
-  gap: var(--space-4);
+  gap: var(--space-8);
   grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .projects__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  max-width: 800px;
+  margin: 0 auto;
 }

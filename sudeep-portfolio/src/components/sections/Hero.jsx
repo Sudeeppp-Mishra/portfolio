@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import Button from '../ui/Button.jsx';
 import '../../styles/hero.css';
 
@@ -16,16 +17,31 @@ const itemVariants = {
 
 function Hero() {
   const shouldReduceMotion = useReducedMotion();
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const textScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.94]);
+  const textY = useTransform(scrollYProgress, [0, 0.5], [0, 80]);
+
+  const imageScale = useTransform(scrollYProgress, [0, 0.8], [1, 1.06]);
+  const imageY = useTransform(scrollYProgress, [0, 0.8], [0, 60]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
 
   const handleViewProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="home" className="hero" aria-label="Introduction">
+    <section ref={sectionRef} id="home" className="hero" aria-label="Introduction">
       <div className="hero__inner container">
         <motion.div
           className="hero__content"
+          style={shouldReduceMotion ? undefined : { opacity: textOpacity, scale: textScale, y: textY }}
           variants={shouldReduceMotion ? undefined : containerVariants}
           initial="hidden"
           animate="visible"
@@ -59,17 +75,23 @@ function Hero() {
         </motion.div>
 
         <motion.div
-          className="hero__photo-wrap"
-          initial={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          style={shouldReduceMotion ? undefined : { y: imageY }}
+          className="hero__photo-outer"
         >
-          <div className="hero__photo-glow" aria-hidden="true" />
-          <img
-            src="/images/profile-placeholder.jpg"
-            alt="Portrait of Sudeep Mishra"
-            className="hero__photo"
-          />
+          <motion.div
+            style={shouldReduceMotion ? undefined : { scale: imageScale, opacity: imageOpacity }}
+            className="hero__photo-wrap"
+            initial={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          >
+            <div className="hero__photo-glow" aria-hidden="true" />
+            <img
+              src="/images/profile.jpeg"
+              alt="Portrait of Sudeep Mishra"
+              className="hero__photo"
+            />
+          </motion.div>
         </motion.div>
       </div>
 

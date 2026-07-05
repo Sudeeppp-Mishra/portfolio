@@ -47,10 +47,10 @@ function Skills() {
             <motion.div
               key={id}
               className="skills__card"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: index * 0.06 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ type: 'spring', stiffness: 90, damping: 16, delay: index * 0.05 }}
             >
               <div className="skills__card-header">
                 <Icon size={18} className="skills__card-icon" aria-hidden="true" />

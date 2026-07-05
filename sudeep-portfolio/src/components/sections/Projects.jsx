@@ -53,7 +53,7 @@ function Projects() {
 
         <div className="projects__grid">
           {PROJECTS.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard key={project.id} project={project} index={index} total={PROJECTS.length} />
           ))}
         </div>
       </div>

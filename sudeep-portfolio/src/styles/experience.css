@@ -1,0 +1,49 @@
+.experience__empty {
+  position: relative;
+  padding-left: var(--space-4);
+}
+
+.experience__node {
+  position: absolute;
+  left: 1px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.experience__node::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  width: 1px;
+  height: 24px;
+  background: var(--color-border);
+}
+
+.experience__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+}
+
+.experience__message {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  margin-bottom: var(--space-2);
+}
+
+.experience__link {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  color: var(--color-accent);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--duration-fast) ease;
+}
+
+.experience__link:hover {
+  border-color: var(--color-accent);
+}
