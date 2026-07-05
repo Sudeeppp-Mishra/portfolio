@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Github, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { Github } from './BrandIcons.jsx';
 import '../../styles/project-card.css';
 
 function ProjectCard({ project, index }) {
@@ -31,7 +32,7 @@ function ProjectCard({ project, index }) {
         <p className="project-card__tech">{tech.join(' · ')}</p>
 
         <div className="project-card__actions">
-          
+          <a
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -41,7 +42,7 @@ function ProjectCard({ project, index }) {
             <Github size={16} aria-hidden="true" />
             Code
           </a>
-          
+          <a
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"

@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { Github, Linkedin } from '../ui/BrandIcons.jsx';
 import { SITE_CONFIG } from '../../siteConfig.js';
 import '../../styles/footer.css';
 
@@ -22,7 +23,7 @@ function Footer() {
         <ul className="footer__socials">
           {SOCIAL_LINKS.map(({ label, href, Icon }) => (
             <li key={label}>
-              
+              <a
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"

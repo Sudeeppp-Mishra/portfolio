@@ -26,7 +26,7 @@ function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar__inner container">
-        
+        <a
           href="#home"
           className="navbar__logo"
           onClick={(e) => {
@@ -42,7 +42,7 @@ function Navbar() {
           <ul>
             {NAV_ITEMS.map((item) => (
               <li key={item.id}>
-                
+                <a
                   href={`#${item.id}`}
                   className="navbar__link"
                   aria-current={activeId === item.id ? 'true' : undefined}
@@ -85,7 +85,7 @@ function Navbar() {
           <ul>
             {NAV_ITEMS.map((item) => (
               <li key={item.id}>
-                
+                <a
                   href={`#${item.id}`}
                   className="navbar__link"
                   aria-current={activeId === item.id ? 'true' : undefined}

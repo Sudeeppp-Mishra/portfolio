@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, MapPin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
+import { Github, Linkedin } from '../ui/BrandIcons.jsx';
 import SectionHeading from '../ui/SectionHeading.jsx';
 import Button from '../ui/Button.jsx';
 import { SITE_CONFIG } from '../../siteConfig.js';
@@ -37,7 +37,7 @@ function Contact() {
               <li key={label} className="contact__item">
                 <Icon size={18} className="contact__icon" aria-hidden="true" />
                 {href ? (
-                  
+                  <a
                     href={href}
                     target={external ? '_blank' : undefined}
                     rel={external ? 'noopener noreferrer' : undefined}
