@@ -11,9 +11,9 @@ const NAV_ITEMS = [
   { id: 'projects', label: 'Projects' },
   { id: 'certifications', label: 'Certifications' },
   { id: 'education', label: 'Education' },
+  { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ];
-
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const activeId = useActiveSection(NAV_ITEMS.map((item) => item.id));
