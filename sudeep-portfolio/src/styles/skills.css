@@ -45,6 +45,9 @@
 }
 
 .skills__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.625rem var(--space-2);
   margin-inline: calc(var(--space-2) * -1);
   border-left: 2px solid transparent;
@@ -63,6 +66,46 @@
   color: var(--color-text-primary);
   border-left-color: var(--color-accent);
   background-color: var(--color-surface-hover);
+}
+
+.skills__item-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  background: var(--color-accent-muted);
+  border: 1px solid rgba(217, 165, 102, 0.25);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.skills__item-badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  position: relative;
+  display: block;
+}
+
+.skills__item-badge-dot::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  opacity: 0;
+  animation: badgePulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes badgePulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
 }
 
 @media (min-width: 768px) {

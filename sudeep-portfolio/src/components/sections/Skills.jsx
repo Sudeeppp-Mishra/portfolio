@@ -8,31 +8,40 @@ const SKILL_CATEGORIES = [
     id: 'languages',
     label: 'Languages',
     Icon: Code2,
-    skills: ['JavaScript', 'TypeScript', 'Python', 'C++', 'Java'],
+    skills: ['JavaScript', 'Python', 'C/C++', 'Java'],
   },
   {
     id: 'frontend',
     label: 'Frontend',
     Icon: Layout,
-    skills: ['React', 'Vite', 'Framer Motion', 'CSS'],
+    skills: ['HTML', 'CSS', 'React'],
   },
   {
     id: 'backend',
     label: 'Backend',
     Icon: Server,
-    skills: ['Node.js', 'Express', 'REST APIs'],
+    skills: [
+      'Node.js',
+      'Express',
+      { name: 'REST APIs', status: 'learning' },
+    ],
   },
   {
     id: 'databases',
     label: 'Databases',
     Icon: Database,
-    skills: ['PostgreSQL', 'MongoDB', 'MySQL'],
+    skills: ['MongoDB', 'MySQL'],
   },
   {
     id: 'tools',
     label: 'Tools',
     Icon: Wrench,
-    skills: ['Git', 'Docker', 'Linux', 'VS Code'],
+    skills: [
+      'Git',
+      'GitHub',
+      'Linux',
+      { name: 'Netlify', status: 'learning' },
+    ],
   },
 ];
 
@@ -61,11 +70,21 @@ function Skills() {
               </div>
 
               <ul className="skills__list">
-                {skills.map((skill) => (
-                  <li key={skill} className="skills__item">
-                    {skill}
-                  </li>
-                ))}
+                {skills.map((skill) => {
+                  const name = typeof skill === 'string' ? skill : skill.name;
+                  const isLearning = typeof skill === 'object' && skill.status === 'learning';
+                  return (
+                    <li key={name} className="skills__item">
+                      <span>{name}</span>
+                      {isLearning && (
+                        <span className="skills__item-badge">
+                          <span className="skills__item-badge-dot" aria-hidden="true" />
+                          Learning
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </motion.div>
           ))}

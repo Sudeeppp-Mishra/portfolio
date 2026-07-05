@@ -59,9 +59,9 @@ function Hero() {
           </motion.p>
 
           <motion.p variants={itemVariants} className="hero__intro">
-            I build things at the intersection of hardware logic and software craft —
-            currently deep in systems programming and full-stack development, always
-            shipping something on the side.
+  I like understanding how software works under the hood and turning ideas into working systems. 
+
+  I spend most of my time building projects, experimenting with code, and improving how I think about software design.
           </motion.p>
 
           <motion.div variants={itemVariants} className="hero__actions">

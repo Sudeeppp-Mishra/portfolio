@@ -1,4 +1,5 @@
 import Hero from '../components/sections/Hero.jsx';
+import Quote from '../components/sections/Quote.jsx';
 import About from '../components/sections/About.jsx';
 import Skills from '../components/sections/Skills.jsx';
 import Projects from '../components/sections/Projects.jsx';
@@ -11,6 +12,7 @@ function Home() {
   return (
     <>
       <Hero />
+      <Quote />
       <About />
       <Skills />
       <Projects />
