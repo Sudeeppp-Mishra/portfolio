@@ -1,0 +1,132 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background: transparent;
+  transition: background-color var(--duration-base) var(--ease-out-expo),
+    backdrop-filter var(--duration-base) var(--ease-out-expo);
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out-expo);
+  z-index: -1;
+}
+
+.navbar.is-scrolled::after {
+  opacity: 1;
+}
+
+.navbar__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.navbar__logo {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: var(--color-text-primary);
+}
+
+.navbar__logo-dot {
+  color: var(--color-accent);
+}
+
+.navbar__nav--desktop {
+  display: none;
+}
+
+.navbar__nav--desktop ul {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.navbar__link {
+  position: relative;
+  display: inline-block;
+  padding-block: var(--space-1);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  transition: color var(--duration-fast) ease;
+}
+
+.navbar__link:hover,
+.navbar__link[aria-current='true'] {
+  color: var(--color-text-primary);
+}
+
+.navbar__underline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.navbar__resume-btn {
+  display: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1.125rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  transition: border-color var(--duration-fast) ease, color var(--duration-fast) ease;
+}
+
+.navbar__resume-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.navbar__toggle {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-primary);
+}
+
+.navbar__nav--mobile {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.navbar__nav--mobile ul {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2) var(--gutter) var(--space-3);
+}
+
+.navbar__nav--mobile .navbar__link {
+  display: block;
+  padding-block: var(--space-2);
+  font-size: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .navbar__nav--desktop {
+    display: block;
+  }
+
+  .navbar__resume-btn {
+    display: inline-block;
+  }
+
+  .navbar__toggle {
+    display: none;
+  }
+}
