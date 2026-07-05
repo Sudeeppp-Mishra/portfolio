@@ -4,44 +4,34 @@ import '../../styles/projects.css';
 
 const PROJECTS = [
   {
-    id: 'project-one',
-    title: 'Project One',
+    id: 'leaflens',
+    title: 'LeafLens',
     description:
-      'Replace with a real 2–3 sentence description of what the project does, the problem it solves, and any notable technical decision behind it.',
-    image: '/images/project-placeholder-1.jpg',
-    tech: ['React', 'Node.js', 'PostgreSQL'],
-    githubUrl: 'https://github.com/your-username/project-one',
-    liveUrl: 'https://project-one.example.com',
+      'AI-powered desktop application that detects plant leaf diseases from images using a deep learning model and provides treatment recommendations with audio feedback.',
+    image: '../../../public/images/projects/LeafLens.jpeg',
+    tech: ['Python', 'PyTorch', 'ResNet18', 'PySide6', 'OpenCV', 'NumPy', 'PIL', 'pyttsx3'],
+    githubUrl: 'https://github.com/Sudeeppp-Mishra/LeafLens',
+    liveUrl: null,
   },
   {
-    id: 'project-two',
-    title: 'Project Two',
+    id: 'todo-list',
+    title: 'Minimal To-Do List',
     description:
-      'Replace with a real 2–3 sentence description of what the project does, the problem it solves, and any notable technical decision behind it.',
-    image: '/images/project-placeholder-2.jpg',
-    tech: ['TypeScript', 'Express', 'MongoDB'],
-    githubUrl: 'https://github.com/your-username/project-two',
-    liveUrl: 'https://project-two.example.com',
+      'A lightweight desktop task management application built with Java Swing that allows users to organize daily tasks through a clean and distraction-free interface.',
+    image: '../../../public/images/projects/ToDoList.jpeg',
+    tech: ['Java', 'Java Swing'],
+    githubUrl: 'https://github.com/Sudeeppp-Mishra/TinyTasks.java',
+    liveUrl: null,
   },
   {
-    id: 'project-three',
-    title: 'Project Three',
+    id: 'weather-app',
+    title: 'Weather App',
     description:
-      'Replace with a real 2–3 sentence description of what the project does, the problem it solves, and any notable technical decision behind it.',
-    image: '/images/project-placeholder-3.jpg',
-    tech: ['Python', 'C++'],
-    githubUrl: 'https://github.com/your-username/project-three',
-    liveUrl: 'https://project-three.example.com',
-  },
-  {
-    id: 'project-four',
-    title: 'Project Four',
-    description:
-      'Replace with a real 2–3 sentence description of what the project does, the problem it solves, and any notable technical decision behind it.',
-    image: '/images/project-placeholder-4.jpg',
-    tech: ['React', 'Vite', 'Docker'],
-    githubUrl: 'https://github.com/your-username/project-four',
-    liveUrl: 'https://project-four.example.com',
+      'Desktop weather application that fetches real-time weather data using the OpenWeatherMap API and presents it through a clean, user-friendly GUI with city search functionality.',
+    image: '../../../public/images/projects/Weather.jpeg',
+    tech: ['Python', 'PyQt5', 'OpenWeatherMap API', 'python-dotenv'],
+    githubUrl: 'https://github.com/Sudeeppp-Mishra/pyWeatherProject',
+    liveUrl: null,
   },
 ];
 
