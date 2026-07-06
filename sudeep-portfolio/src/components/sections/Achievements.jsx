@@ -10,21 +10,21 @@ const ACHIEVEMENTS = [
     title: 'Cyber Security & Ethical Hacking Workshop',
     issuer: 'KMC Students Committee',
     date: 'Mar 2022',
-    image: '../../../public/images/certifications/cyber.jpeg',
+    image: '../../../public/images/cyber.jpeg',
   },
   {
     id: 'intro-to-python',
     title: 'Introduction to Python',
     issuer: 'KMC Students Committee',
     date: 'Sep 2022',
-    image: '../../../public/images/certifications/pythonPlusTwo.jpeg',
+    image: '../../../public/images/pythonPlusTwo.jpeg',
   },
   {
     id: 'kaggle-python',
     title: 'Python',
     issuer: 'Kaggle',
     date: 'Jul 2026',
-    image: '../../../public/images/certifications/Sudeep Mishra - Python.png',
+    image: '../../../public/images/Sudeep Mishra - Python.png',
     credentialUrl: 'https://www.kaggle.com/learn/certification/mishra0sudeep/python#',
   },
   {
@@ -32,14 +32,14 @@ const ACHIEVEMENTS = [
     title: 'Organizing Committee – EKALYA 2026',
     issuer: 'Cosmos ICT Club',
     date: 'Feb 2026',
-    image: '../../../public/images/certifications/Ekalya.png',
+    image: '../../../public/images/Ekalya.png',
   },
   {
     id: 'cosmos-hackathon-2026',
     title: 'Event Contribution – Cosmos Hackathon 2026',
     issuer: 'ICT Club (Secretary Role)',
     date: 'Jun 2026', /*27th-28th June 2026: Date of Hackathon*/
-    image: '../../../public/images/certifications/SecretaryHackathon.png',
+    image: '../../../public/images/SecretaryHackathon.png',
   },
 ];
 
