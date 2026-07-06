@@ -26,7 +26,35 @@
 
 ## Folder Structure
 
-*Project repository structure is yet to be created.*
+```text
+.
+├── LICENSE
+├── README.md
+└── sudeep-portfolio/                # Main application
+    ├── index.html                   # HTML entry point
+    ├── package.json
+    ├── vite.config.js               # Vite dev/build configuration
+    ├── .oxlintrc.json               # Linter configuration
+    ├── public/                      # Static assets served as-is
+    │   ├── favicon.png / favicon.svg
+    │   ├── resume.pdf
+    │   └── images/                  # Project & profile images
+    └── src/
+        ├── main.jsx                 # React app bootstrap
+        ├── App.jsx                  # Root component & routing
+        ├── siteConfig.js            # Personal info (email, GitHub, LinkedIn, location)
+        ├── pages/
+        │   └── Home.jsx             # Landing page composing all sections
+        ├── components/
+        │   ├── layout/              # Navbar, Footer, ScrollProgress, BackToTop
+        │   ├── sections/            # Hero, About, Skills, Projects, Education,
+        │   │                        # Experience, Achievements, Quote, Contact
+        │   └── ui/                  # Reusable UI: Button, ProjectCard,
+        │                            # SectionHeading, BrandIcons
+        ├── hooks/
+        │   └── useActiveSection.js  # Tracks active section for nav highlighting
+        └── styles/                  # Per-component/section CSS + design tokens
+```
 
 ---
 
