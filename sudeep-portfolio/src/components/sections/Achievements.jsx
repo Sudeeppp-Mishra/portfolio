@@ -177,7 +177,7 @@ function Achievements() {
   }, [scrollYProgress, sortedAchievements.length]);
 
   return (
-    <section ref={containerRef} id="achievements" className="achievements" aria-label="Achievements and Certifications">
+    <section ref={containerRef} id="certifications" className="achievements" aria-label="Achievements and Certifications">
       <div className="achievements__stack-container">
         <div className="achievements__deck-sticky">
           <div className="achievements__title-area">
