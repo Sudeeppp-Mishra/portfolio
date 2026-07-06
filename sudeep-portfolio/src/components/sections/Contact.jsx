@@ -15,7 +15,7 @@ const CONTACT_ITEMS = [
 ];
 
 function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '', 'bot-field': '' });
   const [status, setStatus] = useState('idle');
   const shouldReduceMotion = useReducedMotion();
 
@@ -25,7 +25,37 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus('success');
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setStatus('error');
+      return;
+    }
+
+    setStatus('submitting');
+
+    const encode = (data) => {
+      return Object.keys(data)
+        .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&');
+    };
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...formData }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          setStatus('success');
+          setFormData({ name: '', email: '', message: '', 'bot-field': '' });
+        } else {
+          setStatus('error');
+        }
+      })
+      .catch((error) => {
+        console.error('Form submission error:', error);
+        setStatus('error');
+      });
   };
 
   return (
@@ -64,11 +94,27 @@ function Contact() {
             className="contact__form"
             onSubmit={handleSubmit}
             noValidate
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             initial={shouldReduceMotion ? undefined : { opacity: 0, x: 30 }}
             whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.15 }}
             transition={{ type: 'spring', stiffness: 90, damping: 16 }}
           >
+            <input type="hidden" name="form-name" value="contact" />
+            <div style={{ display: 'none' }}>
+              <label>
+                Don't fill this out if you're human:{' '}
+                <input
+                  name="bot-field"
+                  value={formData['bot-field']}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+
             <div className="contact__field">
               <label htmlFor="name" className="contact__label">
                 Name
@@ -116,12 +162,14 @@ function Contact() {
               />
             </div>
 
-            <Button variant="primary" type="submit">
-              Send Message
+            <Button variant="primary" type="submit" disabled={status === 'submitting'}>
+              {status === 'submitting' ? 'Sending...' : 'Send Message'}
             </Button>
 
             <div role="status" aria-live="polite" className="contact__status">
-              {status === 'success' && 'Message sent — thank you, I\'ll reply soon.'}
+              {status === 'submitting' && 'Sending message...'}
+              {status === 'success' && "Message sent — thank you, I'll reply soon."}
+              {status === 'error' && 'Something went wrong. Please try again.'}
             </div>
           </motion.form>
         </div>
