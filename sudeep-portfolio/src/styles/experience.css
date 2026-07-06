@@ -1,11 +1,28 @@
-.experience__empty {
+.experience__timeline {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
   padding-left: var(--space-4);
+}
+
+.experience__timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.experience__item {
+  position: relative;
 }
 
 .experience__node {
   position: absolute;
-  left: 1px;
+  left: calc(var(--space-4) * -1 + 1px);
   top: 6px;
   width: 10px;
   height: 10px;
@@ -13,37 +30,52 @@
   background: var(--color-accent);
 }
 
-.experience__node::after {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 10px;
-  width: 1px;
-  height: 24px;
-  background: var(--color-border);
-}
-
 .experience__card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  padding: var(--space-4);
+  padding: var(--space-3);
 }
 
-.experience__message {
-  color: var(--color-text-secondary);
-  font-size: 1rem;
-  margin-bottom: var(--space-2);
-}
-
-.experience__link {
+.experience__date {
   font-family: var(--font-mono);
-  font-size: 0.9375rem;
+  font-size: var(--fs-caption);
   color: var(--color-accent);
-  border-bottom: 1px solid transparent;
-  transition: border-color var(--duration-fast) ease;
+  margin-bottom: var(--space-1);
+  display: block;
 }
 
-.experience__link:hover {
-  border-color: var(--color-accent);
+.experience__role {
+  font-size: 1.0625rem;
+  margin-bottom: 0.25rem;
+}
+
+.experience__org {
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.experience__detail {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.experience__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.experience__tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-accent);
+  background: var(--color-accent-muted);
+  border: 1px solid rgba(217, 165, 102, 0.25);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 500;
+  line-height: 1.4;
 }

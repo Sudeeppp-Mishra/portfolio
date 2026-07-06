@@ -55,7 +55,33 @@
   margin-bottom: var(--space-1);
 }
 
+.education__subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+  font-style: italic;
+}
+
 .education__detail {
   font-size: 0.875rem;
   color: var(--color-text-secondary);
+}
+
+.education__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.education__tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-accent);
+  background: var(--color-accent-muted);
+  border: 1px solid rgba(217, 165, 102, 0.25);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 500;
+  line-height: 1.4;
 }
