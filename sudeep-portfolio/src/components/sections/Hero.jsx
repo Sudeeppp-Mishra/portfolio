@@ -55,7 +55,7 @@ function Hero() {
           </motion.h1>
 
           <motion.p variants={itemVariants} className="hero__role">
-            Aspiring Software Engineer<span className="hero__cursor" aria-hidden="true">_</span>
+            Aspiring Computer Engineer<span className="hero__cursor" aria-hidden="true">_</span>
           </motion.p>
 
           <motion.p variants={itemVariants} className="hero__intro">
